@@ -279,6 +279,12 @@ namespace GoWR_Trainer
                 txtGameLog.ScrollToCaret();
             }
 
+
+
+
+            //progression::facts::s_factManager.m_acceleration_criticalPathProgress = gowr.exe+0x2560510
+            txtCriticalPathProgress.Text = RUInt64(gowr + 0x2560510).ToString("X");
+            txtCriticalPathProgress2.Text = RUInt64(gowr + 0x2560510).ToString();
         }
 
         private void btnWadWarp_Click(object sender, EventArgs e)

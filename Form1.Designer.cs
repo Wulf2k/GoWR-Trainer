@@ -95,6 +95,9 @@
             txtInvSelAmt = new TextBox();
             txtInvSelName = new TextBox();
             dgvInventory = new DataGridView();
+            tabQuests = new TabPage();
+            txtCriticalPathProgress = new TextBox();
+            label29 = new Label();
             tabWarp = new TabPage();
             btnWadWarp = new Button();
             label3 = new Label();
@@ -108,6 +111,7 @@
             tabGameLog = new TabPage();
             txtGameLog = new TextBox();
             label28 = new Label();
+            txtCriticalPathProgress2 = new TextBox();
             tabControl1.SuspendLayout();
             tabCreatures.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -116,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPlayerMeters).BeginInit();
             tabInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
+            tabQuests.SuspendLayout();
             tabWarp.SuspendLayout();
             tabCheats.SuspendLayout();
             tabGameLog.SuspendLayout();
@@ -176,6 +181,7 @@
             // 
             tabControl1.Controls.Add(tabCreatures);
             tabControl1.Controls.Add(tabInventory);
+            tabControl1.Controls.Add(tabQuests);
             tabControl1.Controls.Add(tabWarp);
             tabControl1.Controls.Add(tabCheats);
             tabControl1.Controls.Add(tabGameLog);
@@ -733,6 +739,34 @@
             dgvInventory.TabIndex = 33;
             dgvInventory.CellClick += dgvInventory_CellClick;
             // 
+            // tabQuests
+            // 
+            tabQuests.Controls.Add(txtCriticalPathProgress2);
+            tabQuests.Controls.Add(txtCriticalPathProgress);
+            tabQuests.Controls.Add(label29);
+            tabQuests.Location = new Point(4, 24);
+            tabQuests.Name = "tabQuests";
+            tabQuests.Size = new Size(942, 816);
+            tabQuests.TabIndex = 5;
+            tabQuests.Text = "Quests";
+            tabQuests.UseVisualStyleBackColor = true;
+            // 
+            // txtCriticalPathProgress
+            // 
+            txtCriticalPathProgress.Location = new Point(125, 16);
+            txtCriticalPathProgress.Name = "txtCriticalPathProgress";
+            txtCriticalPathProgress.Size = new Size(239, 23);
+            txtCriticalPathProgress.TabIndex = 4;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(8, 19);
+            label29.Name = "label29";
+            label29.Size = new Size(111, 15);
+            label29.TabIndex = 5;
+            label29.Text = "criticalPathProgress";
+            // 
             // tabWarp
             // 
             tabWarp.Controls.Add(btnWadWarp);
@@ -863,6 +897,13 @@
             label28.TabIndex = 7;
             label28.Text = "Needs GoWR.exe v1.0.618.4551";
             // 
+            // txtCriticalPathProgress2
+            // 
+            txtCriticalPathProgress2.Location = new Point(125, 45);
+            txtCriticalPathProgress2.Name = "txtCriticalPathProgress2";
+            txtCriticalPathProgress2.Size = new Size(239, 23);
+            txtCriticalPathProgress2.TabIndex = 6;
+            // 
             // frmGoWRTrainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -886,6 +927,8 @@
             tabInventory.ResumeLayout(false);
             tabInventory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).EndInit();
+            tabQuests.ResumeLayout(false);
+            tabQuests.PerformLayout();
             tabWarp.ResumeLayout(false);
             tabWarp.PerformLayout();
             tabCheats.ResumeLayout(false);
@@ -979,5 +1022,9 @@
         private Button btnGameSpeedDown;
         private Button btnGamespeedUp;
         private Label label28;
+        private TabPage tabQuests;
+        private TextBox txtCriticalPathProgress;
+        private Label label29;
+        private TextBox txtCriticalPathProgress2;
     }
 }
