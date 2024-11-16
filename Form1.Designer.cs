@@ -64,8 +64,6 @@
             label18 = new Label();
             groupBox1 = new GroupBox();
             dgvPlayerMeters = new DataGridView();
-            txtChkpntDeaths = new TextBox();
-            label27 = new Label();
             txtWadContextName = new TextBox();
             label26 = new Label();
             txtXPos = new TextBox();
@@ -96,6 +94,7 @@
             txtInvSelName = new TextBox();
             dgvInventory = new DataGridView();
             tabQuests = new TabPage();
+            txtCriticalPathProgress2 = new TextBox();
             txtCriticalPathProgress = new TextBox();
             label29 = new Label();
             tabWarp = new TabPage();
@@ -111,7 +110,6 @@
             tabGameLog = new TabPage();
             txtGameLog = new TextBox();
             label28 = new Label();
-            txtCriticalPathProgress2 = new TextBox();
             tabControl1.SuspendLayout();
             tabCreatures.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -439,8 +437,6 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvPlayerMeters);
-            groupBox1.Controls.Add(txtChkpntDeaths);
-            groupBox1.Controls.Add(label27);
             groupBox1.Controls.Add(txtWadContextName);
             groupBox1.Controls.Add(label26);
             groupBox1.Controls.Add(txtHeroName);
@@ -484,22 +480,6 @@
             dgvPlayerMeters.RowTemplate.Height = 25;
             dgvPlayerMeters.Size = new Size(319, 621);
             dgvPlayerMeters.TabIndex = 32;
-            // 
-            // txtChkpntDeaths
-            // 
-            txtChkpntDeaths.Location = new Point(250, 55);
-            txtChkpntDeaths.Name = "txtChkpntDeaths";
-            txtChkpntDeaths.Size = new Size(75, 23);
-            txtChkpntDeaths.TabIndex = 30;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Location = new Point(176, 58);
-            label27.Name = "label27";
-            label27.Size = new Size(72, 15);
-            label27.TabIndex = 31;
-            label27.Text = "chkp Deaths";
             // 
             // txtWadContextName
             // 
@@ -751,6 +731,13 @@
             tabQuests.Text = "Quests";
             tabQuests.UseVisualStyleBackColor = true;
             // 
+            // txtCriticalPathProgress2
+            // 
+            txtCriticalPathProgress2.Location = new Point(125, 45);
+            txtCriticalPathProgress2.Name = "txtCriticalPathProgress2";
+            txtCriticalPathProgress2.Size = new Size(239, 23);
+            txtCriticalPathProgress2.TabIndex = 6;
+            // 
             // txtCriticalPathProgress
             // 
             txtCriticalPathProgress.Location = new Point(125, 16);
@@ -824,7 +811,7 @@
             // 
             // btnGameSpeedDown
             // 
-            btnGameSpeedDown.Location = new Point(185, 56);
+            btnGameSpeedDown.Location = new Point(139, 56);
             btnGameSpeedDown.Name = "btnGameSpeedDown";
             btnGameSpeedDown.Size = new Size(40, 23);
             btnGameSpeedDown.TabIndex = 5;
@@ -834,7 +821,7 @@
             // 
             // btnGamespeedUp
             // 
-            btnGamespeedUp.Location = new Point(139, 57);
+            btnGamespeedUp.Location = new Point(185, 57);
             btnGamespeedUp.Name = "btnGamespeedUp";
             btnGamespeedUp.Size = new Size(40, 23);
             btnGamespeedUp.TabIndex = 4;
@@ -895,14 +882,7 @@
             label28.Name = "label28";
             label28.Size = new Size(169, 15);
             label28.TabIndex = 7;
-            label28.Text = "Needs GoWR.exe v1.0.618.4551";
-            // 
-            // txtCriticalPathProgress2
-            // 
-            txtCriticalPathProgress2.Location = new Point(125, 45);
-            txtCriticalPathProgress2.Name = "txtCriticalPathProgress2";
-            txtCriticalPathProgress2.Size = new Size(239, 23);
-            txtCriticalPathProgress2.TabIndex = 6;
+            label28.Text = "Needs GoWR.exe v1.0.622.6666";
             // 
             // frmGoWRTrainer
             // 
@@ -1006,8 +986,6 @@
         private CheckBox chkInvulnerable;
         private TextBox txtWadContextName;
         private Label label26;
-        private TextBox txtChkpntDeaths;
-        private Label label27;
         private TextBox txtGameLog;
         private DataGridView dgvPlayerMeters;
         private TabPage tabGameLog;

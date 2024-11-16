@@ -65,12 +65,12 @@ namespace GoWR_Trainer
         }
 
         IntPtr bInvuln;
-        IntPtr chkPntDeaths;
         IntPtr fGamespeed;
         IntPtr gamelog;
         IntPtr goPlayer;
         IntPtr sharedResourceData;
         IntPtr locomotion__g_list;
+        IntPtr factManager;
 
 
         private void Refresh_Data(object sender, EventArgs e)
@@ -88,18 +88,20 @@ namespace GoWR_Trainer
             //sharedResourceData
             //85 c0 74 65 45 33 c9 8d 14 40 c1 e2 04 49 8b cd 45 8d 41 08 e8 ?? ?? ?? ?? 33 db 48 
 
-            bInvuln = gowr + 0x3935879;
-            chkPntDeaths = gowr + 0x5b0747f;                                                    //1.0.618.4551
-            fGamespeed = gowr + 0x2440568;
-            gamelog = RIntPtr(gowr + 0x4f1da88);                                                //1.0.618.4551
-            goPlayer = RIntPtr(gowr + 0x5d08890);                                               //1.0.618.4551
-            sharedResourceData = RIntPtr(gowr + 0x5e31138);                                     //1.0.618.4551
-            int resCount = RInt32(gowr + 0x5e31140);
-            locomotion__g_list = gowr + 0x24f1f30;
+            //progression::facts::s_factManager.m_acceleration_criticalPathProgress = gowr.exe+0x2560510
+
+            bInvuln = gowr + 0x3936979;                                                         //1.0.622.6666
+            fGamespeed = gowr + 0x2441568;                                                      //1.0.622.6666
+            gamelog = RIntPtr(gowr + 0x4f1eb98);                                                //1.0.622.6666
+            goPlayer = RIntPtr(gowr + 0x5d09990);                                               //1.0.622.6666
+            sharedResourceData = RIntPtr(gowr + 0x5e32238);                                     //1.0.622.6666
+            int resCount = RInt32(gowr + 0x5e32240);                                            //1.0.622.6666
+            locomotion__g_list = gowr + 0x24f2f20;                                              //1.0.622.6666
+            factManager = gowr + 0x253d6c0;                                                     //1.0.622.6666
 
 
-            IntPtr currEnemy = RIntPtr(locomotion__g_list);                                     //1.0.618.4551
-            IntPtr lastEnemy = RIntPtr(locomotion__g_list + 8);                                 //1.0.618.4551
+            IntPtr currEnemy = RIntPtr(locomotion__g_list);
+            IntPtr lastEnemy = RIntPtr(locomotion__g_list + 8);
 
             if (RUInt32(gowr + 0xc0) == 0)
             {
@@ -115,9 +117,6 @@ namespace GoWR_Trainer
             txtXPos.Text = Math.Round(RSingle(goCreature + 0x50), 3).ToString();
             txtYPos.Text = Math.Round(RSingle(goCreature + 0x54), 3).ToString();
             txtZPos.Text = Math.Round(RSingle(goCreature + 0x58), 3).ToString();
-
-            //g_playerDeathsOnCurrentCheckpoint
-            txtChkpntDeaths.Text = RUInt8(chkPntDeaths).ToString();
 
             txtCurrHp.Text = Math.Round(RSingle(goCreature + 0x2b90), 3).ToString();
             txtHeroName.Text = RAscStr(goCreature + 0x7078);
@@ -250,9 +249,8 @@ namespace GoWR_Trainer
 
             }// end if TargetHandle !=0
 
-            chkInvulnerable.Checked = RInt8(bInvuln) != 0;                                            //1.0.618.4551
+            chkInvulnerable.Checked = RInt8(bInvuln) != 0;
             txtGamespeed.Text = RSingle(fGamespeed).ToString();
-            //1.0.618.4551
             gamelog += 0x3100;
             int firstmsg = RInt32(gamelog + 0x8000);
             int lastmsg = RInt32(gamelog + 0x8004);
@@ -279,26 +277,22 @@ namespace GoWR_Trainer
                 txtGameLog.ScrollToCaret();
             }
 
-
-
-
-            //progression::facts::s_factManager.m_acceleration_criticalPathProgress = gowr.exe+0x2560510
-            txtCriticalPathProgress.Text = RUInt64(gowr + 0x2560510).ToString("X");
-            txtCriticalPathProgress2.Text = RUInt64(gowr + 0x2560510).ToString();
+            txtCriticalPathProgress.Text = RUInt64(factManager + 0x23ef0).ToString("X");
+            txtCriticalPathProgress2.Text = RUInt64(factManager + 0x23ef0).ToString();
         }
 
         private void btnWadWarp_Click(object sender, EventArgs e)
         {
-            WAscStr(gowr + 0x5f44d00, cmbWadWarpList.Text);     //jumpToWadName                     //1.0.618.4551
-            WInt8(gowr + 0x4e61c92, 1);                         //bhvrClient::s_WADJumpRequested    //1.0.618.4551
+            WAscStr(gowr + 0x5f45e00, cmbWadWarpList.Text);     //jumpToWadName                     //1.0.622.6666
+            WInt8(gowr + 0x4e62d92, 1);                         //bhvrClient::s_WADJumpRequested    //1.0.622.6666
             Thread.Sleep(5000);
-            WAscStr(gowr + 0x24ebf68, "mid_chase100_intro");    //g_FirstLevel                      //1.0.618.4551
+            WAscStr(gowr + 0x24ecf58, "mid_chase100_intro");    //g_FirstLevel                      //1.0.622.6666
         }
 
 
         private void chkInvulnerable_MouseClick(object sender, MouseEventArgs e)
         {
-            WInt8(bInvuln, Convert.ToSByte(1 - RInt8(bInvuln)));                  //1.0.618.4551
+            WInt8(bInvuln, Convert.ToSByte(1 - RInt8(bInvuln)));
         }
 
         private void dgvInventory_CellClick(object sender, DataGridViewCellEventArgs e)
